@@ -31,11 +31,17 @@ export function List(addUser: any){
       setUser(user)
       setUserModalOpen(true)
     }
+    function getData(){
+      return;
+    }
+    useEffect(()=> {
+      getData()
+    }, [])
 
   useEffect(() => {
     axios.get('https://teppadev-fullstack-backend.herokuapp.com/users')
     .then(response => setUsers(response.data.users))
-  }, [addUser, deleteUser])
+  }, [getData, addUser, deleteUser])
     return(
         <main>
             <div className='users'>
